@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Запрос данных пользователяю, принимает строку заголовок.
+// Возврашает массив введенных слов.
+string [] ReadData(string greeting = "Введите данные")
+{
+    Console.WriteLine(greeting);
+    return (Console.ReadLine() ?? "0").Split(",");
+}
