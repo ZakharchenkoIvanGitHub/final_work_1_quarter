@@ -18,7 +18,7 @@ string[] SeparatedArray(string[] array)
     foreach (string item in array)
     {
         string str = item.Trim();
-        if (str.Length <= 3)
+        if (str.Length <= 3&&!String.IsNullOrEmpty(str))
         {
             newArray = AddArray(array: newArray, data: str);
         }
@@ -37,13 +37,11 @@ string[] AddArray(string[] array, string data)
 // Печатает одномерный массив.
 void Print1DArray(string[] array)
 {
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length - 1; i++)
     {
-        if (!String.IsNullOrEmpty(array[i]))
-            Console.Write(array[i]);
-        if (i < array.Length - 1 && !String.IsNullOrEmpty(array[i + 1]))
-            Console.Write(", ");
+        Console.Write(array[i] + ", ");
     }
+    Console.WriteLine(array[array.Length - 1]);
 }
 
 //Основная прграмма
