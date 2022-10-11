@@ -17,29 +17,36 @@ string[] SeparatedArray(string[] array)
     string[] newArray = Array.Empty<string>();
     foreach (string item in array)
     {
-        if (item.Length <= 3)
+        string str = item.Trim();
+        if (str.Length <= 3)
         {
-            newArray = AddArray(array:newArray, data:item);
+            newArray = AddArray(array: newArray, data: str);
         }
     }
     return newArray;
 }
 
-//Добавляет элемент в массив
+// Добавляет элемент в массив.
 string[] AddArray(string[] array, string data)
 {
-    Array.Resize(ref array, array.Length+1);
-    array[array.Length]=data;
+    Array.Resize(ref array, array.Length + 1);
+    array[array.Length - 1] = data;
     return array;
 }
 
-//Печатает одномерный массив
+// Печатает одномерный массив.
 void Print1DArray(string[] array)
 {
-    for (int i = 0; i < array.Length - 1; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i] + ", ");
+        if (!String.IsNullOrEmpty(array[i]))
+            Console.Write(array[i]);
+        if (i < array.Length - 1 && !String.IsNullOrEmpty(array[i + 1]))
+            Console.Write(", ");
     }
-    Console.WriteLine(array[array.Length - 1]);
 }
 
+//Основная прграмма
+string[] array = SeparatedArray(ReadData("Введите массив из строк разделяя элементы запятыми"));
+Console.WriteLine("Массив из строк, длина которых меньше либо равна 3 символа:");
+Print1DArray(array);
