@@ -32,3 +32,14 @@ string[] AddArray(string[] array, string data)
     array[array.Length]=data;
     return array;
 }
+
+//Печатает одномерный массив
+void Print1DArray(string[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write(array[i] + ", ");
+    }
+    Console.WriteLine(array[array.Length - 1]);
+}
+
