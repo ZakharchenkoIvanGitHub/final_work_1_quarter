@@ -18,16 +18,16 @@ string[] SeparatedArray(string[] array)
     foreach (string item in array)
     {
         string str = item.Trim();
-        if (str.Length <= 3&&!String.IsNullOrEmpty(str))
+        if (str.Length <= 3 && !String.IsNullOrEmpty(str))
         {
-            newArray = AddArray(array: newArray, data: str);
+            newArray = AddElementArray(array: newArray, data: str);
         }
     }
     return newArray;
 }
 
 // Добавляет элемент в массив.
-string[] AddArray(string[] array, string data)
+string[] AddElementArray(string[] array, string data)
 {
     Array.Resize(ref array, array.Length + 1);
     array[array.Length - 1] = data;
